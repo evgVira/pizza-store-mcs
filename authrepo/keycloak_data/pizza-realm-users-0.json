@@ -1,0 +1,27 @@
+{
+  "realm" : "pizza-realm",
+  "users" : [ {
+    "id" : "ac07cbbd-4c44-40f4-99e1-59770c37b7cb",
+    "createdTimestamp" : 1740412780951,
+    "username" : "john_doe",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "John",
+    "lastName" : "Doe",
+    "email" : "john@example.com",
+    "credentials" : [ {
+      "id" : "480b3116-3cb0-45ef-8322-a5c98819a0f8",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1740413281746,
+      "secretData" : "{\"value\":\"ea9RAQhfmvtg7tNJIDvofm/FhZLiFfngM/CXBIbdd9Q=\",\"salt\":\"mH4aVAIGhP+Rq17vdPRgcQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-pizza-realm", "ADMIN" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
