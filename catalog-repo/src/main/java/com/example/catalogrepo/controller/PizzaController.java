@@ -17,7 +17,7 @@ public class PizzaController {
 
     private final PizzaService pizzaService;
 
-    @GetMapping("/pizzas/{pizzaId}/info")
+    @GetMapping("/pizzas/info/{pizzaId}")
     @ResponseStatus(HttpStatus.OK)
     public PizzaInfoResponseDto getPizzaById(@PathVariable("pizzaId")UUID pizzaId){
         return pizzaService.getPizzaById(pizzaId);
@@ -35,7 +35,7 @@ public class PizzaController {
         return pizzaService.createPizza(pizzaCreateRequestDto);
     }
 
-    @DeleteMapping("/pizzas/{pizzaId}/delete")
+    @DeleteMapping("/pizzas/delete/{pizzaId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePizzaById(@PathVariable("pizzaId") UUID pizzaId){
         pizzaService.deletePizzaById(pizzaId);
