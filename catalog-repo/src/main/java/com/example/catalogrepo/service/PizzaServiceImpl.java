@@ -1,5 +1,6 @@
 package com.example.catalogrepo.service;
 
+import com.example.catalogrepo.config.exception.ResourceNotFoundException;
 import com.example.catalogrepo.dto.PizzaCreateRequestDto;
 import com.example.catalogrepo.dto.PizzaInfoResponseDto;
 import com.example.catalogrepo.mapper.PizzaMapper;
@@ -58,7 +59,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     private Pizza findPizzaById(UUID id) {
         return pizzaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(String.format(PIZZA_NOT_FOUND_MESSAGE, id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(PIZZA_NOT_FOUND_MESSAGE, id)));
     }
 
 }
