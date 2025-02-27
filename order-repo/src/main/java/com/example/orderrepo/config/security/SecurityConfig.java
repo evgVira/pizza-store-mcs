@@ -1,9 +1,8 @@
-package com.example.catalogrepo.config.security;
+package com.example.orderrepo.config.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,9 +33,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/v1/catalog/pizzas/info*").permitAll()
-                                .requestMatchers("/api/v1/catalog/pizzas/create", "/api/v1/catalog/pizzas/delete*")
-                                .hasRole(ADMIN_ROLE)
+                        auth.requestMatchers("/api/v1/order/delete/*").hasRole(ADMIN_ROLE)
                                 .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwtDecoder()));
         return httpSecurity.build();
@@ -69,4 +66,5 @@ public class SecurityConfig {
         }
         return authorities;
     }
+
 }

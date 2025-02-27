@@ -1,7 +1,9 @@
 package com.example.orderrepo.model;
 
+import com.example.orderrepo.enums.OrderStatuses;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +15,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "order", schema = "order_sc")
+@Builder
 public class Order {
 
     @Id
@@ -30,6 +33,7 @@ public class Order {
     private BigDecimal totalAmount;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatuses status;
 
 }
