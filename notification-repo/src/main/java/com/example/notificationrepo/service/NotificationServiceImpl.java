@@ -16,7 +16,11 @@ public class NotificationServiceImpl {
 
     private final ObjectMapper objectMapper;
 
-    @KafkaListener(topics = "order-topic", groupId = "order-group", containerFactory = "kafkaListenerContainerFactory")
+    private static final String ORDER_TOPIC_NAME = "order-topic";
+
+    private static final String ORDER_GROUP_ID = "order-group";
+
+    @KafkaListener(topics = ORDER_TOPIC_NAME, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
     public void consumerNotification(@Payload String notification) {
         var readerForNotification = objectMapper.readerFor(Notification.class);
         try {
