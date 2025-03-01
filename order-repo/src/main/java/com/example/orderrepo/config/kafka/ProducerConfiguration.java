@@ -1,11 +1,9 @@
 package com.example.orderrepo.config.kafka;
 
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -16,9 +14,7 @@ import java.util.Map;
 @Configuration
 public class ProducerConfiguration {
 
-    private String BOOTSTRAP_SERVER = "localhost:9092";
-
-    private final String ORDERS_TOPIC = "orders-topic";
+    private final static String BOOTSTRAP_SERVER = "localhost:9092";
 
     private final static int RETRIES = 3;
 
@@ -27,15 +23,6 @@ public class ProducerConfiguration {
     private final static int BATCH_SIZE = 16384;
 
     private final static int LINGER_MS = 5;
-
-    @Bean
-    public NewTopic topic() {
-        return TopicBuilder
-                .name(ORDERS_TOPIC)
-                .replicas(1)
-                .partitions(2)
-                .build();
-    }
 
     @Bean
     public Map<String, Object> producerConfigs() {
