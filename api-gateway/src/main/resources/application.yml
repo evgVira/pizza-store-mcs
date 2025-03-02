@@ -9,16 +9,57 @@ spring:
           uri: lb://catalog-service
           predicates:
             - Path=/api/v1/catalog/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: catalogCircuitBreaker
+                fallbackUri: forward:/fallback/catalog
         #order-service routing
         - id: order-service
           uri: lb://order-service
           predicates:
             - Path=/api/v1/order/**
+          filters:
+            name: CircuitBreaker
+            args:
+              name: orderCircuitBreaker
+              fallbackUri: forward:/fallback/order
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      catalogCircuitBreaker:
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold:
+          seconds: 2
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state:
+          seconds: 10
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+      orderCircuitBreaker:
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold:
+          seconds: 2
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state:
+          seconds: 10
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,circuitbreakers
+
 server:
   port: 8080
