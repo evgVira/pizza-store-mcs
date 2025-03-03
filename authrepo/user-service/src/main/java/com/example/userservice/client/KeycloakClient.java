@@ -27,7 +27,9 @@ public class KeycloakClient {
 
     private static final String ADMIN_PASSWORD = "admin";
 
-    private static final String GRANT_TYPE = "password";
+    private static final String PASSWORD_GRANT_TYPE = "password";
+
+    private static final String REFRESH_TOKEN_GRANT_TYPE = "refresh_token";
 
     private static final String USER_ROLE_NAME = "USER";
 
@@ -45,6 +47,8 @@ public class KeycloakClient {
 
     private static final String ASSIGN_ROLE = "http://localhost:8088/admin/realms/pizza-realm/users/%s/role-mappings/realm";
 
+    private static final String REFRESH_TOKEN_URL = "http://localhost:8088/realms/pizza-realm/protocol/openid-connect/token";
+
     private final RestTemplate restTemplate;
 
     private final CreateUserMapper createUserMapper;
@@ -54,7 +58,7 @@ public class KeycloakClient {
     public AccessTokenResponseDto loginAndGetToken(String username, String password) {
         Map<String, String> requestBody = new HashMap<>();
         requestBody.put("client_id", CLIENT_ID);
-        requestBody.put("grant_type", GRANT_TYPE);
+        requestBody.put("grant_type", PASSWORD_GRANT_TYPE);
         requestBody.put("username", username);
         requestBody.put("password", password);
         requestBody.put("client_secret", CLIENT_SECRET);
@@ -67,16 +71,14 @@ public class KeycloakClient {
 
         ResponseEntity<Map> response = restTemplate.exchange(ACCESS_TOKEN_URL, HttpMethod.POST, request, Map.class);
 
-        String accessToken = response.getBody() != null ? (String) response.getBody().get("access_token") : null;
-        String refreshToken = response.getBody() != null ? (String) response.getBody().get("refresh_token") : null;
-        return new AccessTokenResponseDto(accessToken, refreshToken);
+        return getTokensFromResponse(response);
     }
 
 
     public AdminTokenResponseDto getAdminToken() {
         Map<String, String> requestBody = new HashMap<>();
         requestBody.put("client_id", ADMIN_CLIENT_ID);
-        requestBody.put("grant_type", GRANT_TYPE);
+        requestBody.put("grant_type", PASSWORD_GRANT_TYPE);
         requestBody.put("username", ADMIN_USERNAME);
         requestBody.put("password", ADMIN_PASSWORD);
 
@@ -129,7 +131,7 @@ public class KeycloakClient {
         return Collections.EMPTY_LIST;
     }
 
-    public UserInfoResponseDto getUserInfo(String username) {
+    private UserInfoResponseDto getUserInfo(String username) {
         AdminTokenResponseDto adminTokenResponseDto = getAdminToken();
 
         HttpHeaders headers = new HttpHeaders();
@@ -151,7 +153,25 @@ public class KeycloakClient {
         return null;
     }
 
-    public void assignUserRole(String username) {
+    public AccessTokenResponseDto refreshAccessToken(String refreshToken) {
+        Map<String, String> requestBody = new HashMap<>();
+        requestBody.put("client_id", CLIENT_ID);
+        requestBody.put("grant_type", REFRESH_TOKEN_GRANT_TYPE);
+        requestBody.put("refresh_token", refreshToken);
+        requestBody.put("client_secret", CLIENT_SECRET);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+        String requestBodyAsString = getRequestBodyAsString(requestBody);
+        HttpEntity<String> request = new HttpEntity<>(requestBodyAsString, headers);
+
+        ResponseEntity<Map> response = restTemplate.exchange(REFRESH_TOKEN_URL, HttpMethod.POST, request, Map.class);
+
+        return getTokensFromResponse(response);
+    }
+
+    private void assignUserRole(String username) {
         UserInfoResponseDto user = getUserInfo(username);
         List<RoleResponseDto> roles = getAllRoles();
         UUID userRoleId = roles.stream()
@@ -170,10 +190,19 @@ public class KeycloakClient {
         restTemplate.exchange(String.format(ASSIGN_ROLE, user.getId()), HttpMethod.POST, request, String.class);
     }
 
-    private static String getRequestBodyAsString(Map<String, String> requestBody) {
+    private String getRequestBodyAsString(Map<String, String> requestBody) {
         StringBuilder formBody = new StringBuilder();
         requestBody.forEach((key, value) -> formBody.append(key).append("=").append(value).append("&"));
         return formBody.substring(0, formBody.length() - 1);
+    }
+
+    private AccessTokenResponseDto getTokensFromResponse(ResponseEntity<Map> response) {
+        if (response.getBody() != null) {
+            String accessToken = (String) response.getBody().get("access_token");
+            String refreshToken = (String) response.getBody().get("refresh_token");
+            return new AccessTokenResponseDto(accessToken, refreshToken);
+        }
+        return null;
     }
 
 }

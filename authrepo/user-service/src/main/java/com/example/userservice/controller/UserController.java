@@ -25,18 +25,23 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public RegisterResponseInfoDto registerAndGetToken(@RequestBody RegisterRequestDto registerRequestDto){
+    public RegisterResponseInfoDto registerAndGetToken(@RequestBody RegisterRequestDto registerRequestDto) {
         return keycloakClient.registerAndGetToken(registerRequestDto);
     }
 
     @PostMapping("/token/admin")
-    public AdminTokenResponseDto getAdminToken(){
+    public AdminTokenResponseDto getAdminToken() {
         return keycloakClient.getAdminToken();
     }
 
     @GetMapping("/roles")
-    public List<RoleResponseDto> getAllRoles(){
+    public List<RoleResponseDto> getAllRoles() {
         return keycloakClient.getAllRoles();
+    }
+
+    @PostMapping("/token/refresh/{refreshToken}")
+    public AccessTokenResponseDto refreshAccessToken(@PathVariable("refreshToken") String refreshToken) {
+        return keycloakClient.refreshAccessToken(refreshToken);
     }
 
 }
