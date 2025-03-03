@@ -1,0 +1,42 @@
+version: '3'
+services:
+  elasticsearch:
+    image: bitnami/elasticsearch:7.17.0
+    environment:
+      - discovery.type=single-node
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+  kibana:
+    image: bitnami/kibana:7.17.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+    ports:
+      - 5601:5601
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    image: bitnami/logstash:7.17.0
+    environment:
+      - LOGSTASH_JAVA_OPTS="-Xmx1g -Xms1g"
+    volumes:
+      - ./logstash.conf:/opt/bitnami/logstash/pipeline/logstash.conf
+    ports:
+      - 5044:5044
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge
