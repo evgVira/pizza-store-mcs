@@ -1,6 +1,7 @@
 import {useState} from "react";
 import api from "./api";
 import {useNavigate} from "react-router-dom";
+import {Button, Container, FormWrapper, Input, Title} from "./LoginPage.styles.ts";
 
 export default function LoginPage() {
     const [username, setUsername] = useState("");
@@ -15,12 +16,23 @@ export default function LoginPage() {
     };
 
     return (
-        <div>
-            <h2>Вход</h2>
-            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="password" placeholder="Password" value={password}
-                   onChange={(e) => setPassword(e.target.value)}/>
-            <button onClick={handleLogin}>Войти</button>
-        </div>
+        <Container>
+            <FormWrapper>
+                <Title>Вход</Title>
+                <Input
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <Button onClick={handleLogin}>Войти</Button>
+            </FormWrapper>
+        </Container>
     );
 }
