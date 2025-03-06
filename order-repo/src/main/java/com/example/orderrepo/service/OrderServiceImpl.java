@@ -45,9 +45,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderInfoResponseDto createOrder(UUID userId, UUID pizzaId, BigDecimal totalAmount) {
         Order order = orderMapper.mapToOrder(userId, pizzaId, totalAmount);
         Order savedOrder = orderRepository.save(order);
-        kafkaTemplate.setProducerListener(kafkaProducerListener);
-        retryTemplate.execute(retryContext -> kafkaTemplate.send(ORDER_MAIN_TOPIC,
-                notificationMapper.mapToNotificationDtoAsString(order, objectMapper)));
+        sendNotification(order);
         return orderMapper.mapToOrderInfoResponseDto(savedOrder);
     }
 
@@ -62,4 +60,11 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findById(orderId)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format(ORDER_NOT_FOUND_MESSAGE, orderId)));
     }
+
+    private void sendNotification(Order order) {
+        kafkaTemplate.setProducerListener(kafkaProducerListener);
+        retryTemplate.execute(retryContext -> kafkaTemplate.send(ORDER_MAIN_TOPIC,
+                notificationMapper.mapToNotificationDtoAsString(order, objectMapper)));
+    }
+
 }

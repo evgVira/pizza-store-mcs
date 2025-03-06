@@ -19,5 +19,4 @@ public class Notification {
     private UUID pizzaId;
 
     private BigDecimal totalAmount;
-
 }

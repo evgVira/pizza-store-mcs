@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="refactor ui">
-      <change afterPath="$PROJECT_DIR$/order-ui/src/app/LoginPage.styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaProducerConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/order-ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/order-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-ui/src/app/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/order-ui/src/app/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-ui/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/order-ui/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/kafka/KafkaProducerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/kafka/KafkaProducerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.api-gateway [clean,install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -44,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.CatalogRepoApplication.executor": "Run",
     "Spring Boot.EurekaRepoApplication.executor": "Run",
     "Spring Boot.NotificationRepoApplication.executor": "Run",
     "Spring Boot.OrderRepoApplication.executor": "Run",
@@ -60,6 +63,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -69,10 +80,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
+  <component name="RunManager" selected="Spring Boot.OrderRepoApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="catalog-repo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.catalogrepo.CatalogRepoApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.catalogrepo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,9 +149,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.UserServiceApplication" />
-        <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.NotificationRepoApplication" />
+        <item itemvalue="Spring Boot.OrderRepoApplication" />
+        <item itemvalue="Spring Boot.CatalogRepoApplication" />
+        <item itemvalue="Spring Boot.UserServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +181,7 @@
       <workItem from="1741241166484" duration="7000" />
       <workItem from="1741267699597" duration="58000" />
       <workItem from="1741267777221" duration="22000" />
-      <workItem from="1741267830854" duration="1147000" />
+      <workItem from="1741267830854" duration="8229000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
