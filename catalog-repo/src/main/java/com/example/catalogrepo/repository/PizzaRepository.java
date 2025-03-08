@@ -9,4 +9,6 @@ import java.util.UUID;
 @Repository
 public interface PizzaRepository extends JpaRepository<Pizza, UUID> {
 
+    boolean existsPizzaByName(String name);
+
 }

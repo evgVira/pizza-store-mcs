@@ -1,6 +1,7 @@
 package com.example.catalogrepo.service;
 
 import com.example.catalogrepo.config.exception.ResourceNotFoundException;
+import com.example.catalogrepo.config.exception.UserRequestException;
 import com.example.catalogrepo.dto.PizzaCreateRequestDto;
 import com.example.catalogrepo.dto.PizzaInfoResponseDto;
 import com.example.catalogrepo.mapper.PizzaMapper;
@@ -19,7 +20,9 @@ import java.util.UUID;
 @Transactional(readOnly = true)
 public class PizzaServiceImpl implements PizzaService {
 
-    private static final String PIZZA_NOT_FOUND_MESSAGE = "Pizza by id: %s not found";
+    private static final String PIZZA_NOT_FOUND = "Pizza by id: %s not found";
+
+    private static final String PIZZA_ALREADY_EXIST = "Pizza with name: %s already exists";
 
     private final PizzaRepository pizzaRepository;
 
@@ -28,6 +31,7 @@ public class PizzaServiceImpl implements PizzaService {
     @Override
     @Transactional
     public PizzaInfoResponseDto createPizza(PizzaCreateRequestDto pizzaCreateRequestDto) {
+        findPizzaByName(pizzaCreateRequestDto.getName());
         Pizza pizza = pizzaMapper.mapToPizzaEntity(pizzaCreateRequestDto);
         pizzaRepository.save(pizza);
         return pizzaMapper.mapToPizzaInfoResponseDto(pizza);
@@ -59,7 +63,14 @@ public class PizzaServiceImpl implements PizzaService {
 
     private Pizza findPizzaById(UUID id) {
         return pizzaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format(PIZZA_NOT_FOUND_MESSAGE, id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(PIZZA_NOT_FOUND, id)));
+    }
+
+    private void findPizzaByName(String name) {
+        boolean pizzaExist = pizzaRepository.existsPizzaByName(name);
+        if (pizzaExist) {
+            throw new UserRequestException(String.format(PIZZA_ALREADY_EXIST, name));
+        }
     }
 
 }

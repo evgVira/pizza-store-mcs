@@ -1,5 +1,6 @@
 package com.example.catalogrepo.dto;
 
+import com.example.catalogrepo.enums.PizzaAvailableStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,5 +22,11 @@ public class PizzaInfoResponseDto {
     private String description;
 
     private BigDecimal price;
+
+    private String createdAt;
+
+    private String updatedAt;
+
+    private PizzaAvailableStatus status;
 
 }

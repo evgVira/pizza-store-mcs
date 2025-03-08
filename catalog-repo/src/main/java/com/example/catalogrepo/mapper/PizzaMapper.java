@@ -5,6 +5,10 @@ import com.example.catalogrepo.dto.PizzaInfoResponseDto;
 import com.example.catalogrepo.model.Pizza;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
+import static com.example.catalogrepo.enums.PizzaAvailableStatus.AVAILABLE;
+
 @Component
 public class PizzaMapper {
 
@@ -13,6 +17,9 @@ public class PizzaMapper {
                 .name(pizzaCreateRequestDto.getName())
                 .description(pizzaCreateRequestDto.getDescription())
                 .price(pizzaCreateRequestDto.getPrice())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .status(AVAILABLE)
                 .build();
 
     }
@@ -23,6 +30,9 @@ public class PizzaMapper {
                 .name(pizza.getName())
                 .description(pizza.getDescription())
                 .price(pizza.getPrice())
+                .createdAt(String.valueOf(pizza.getCreatedAt()))
+                .updatedAt(String.valueOf(pizza.getUpdatedAt()))
+                .status(pizza.getStatus())
                 .build();
     }
 }

@@ -18,6 +18,12 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(UserRequestException.class)
+    public ResponseEntity<ErrorDto> handleUserRequestException(UserRequestException exception){
+        logError(exception, HttpStatus.BAD_REQUEST);
+        return buildErrorResponse(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
     private void logError(Exception exception, HttpStatus status) {
         LOGGER.error("Ошибка: {} - {}: {}", status.value(), status.getReasonPhrase(), exception.getMessage(), exception);
     }
