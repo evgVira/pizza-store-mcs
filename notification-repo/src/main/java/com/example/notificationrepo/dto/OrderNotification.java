@@ -1,19 +1,17 @@
-package com.example.orderrepo.dto;
+package com.example.notificationrepo.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class NotificationDto implements Serializable {
+public class OrderNotification {
 
     private UUID orderId;
 
@@ -23,4 +21,9 @@ public class NotificationDto implements Serializable {
 
     private BigDecimal totalAmount;
 
+    private String status;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

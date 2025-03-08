@@ -1,11 +1,11 @@
 package com.example.orderrepo.controller;
 
+import com.example.orderrepo.dto.ChangeOrderStatusRequestDto;
 import com.example.orderrepo.dto.OrderInfoResponseDto;
 import com.example.orderrepo.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -22,7 +22,8 @@ public class OrderController {
     @ResponseStatus(HttpStatus.CREATED)
     public OrderInfoResponseDto createOrder(@PathVariable("pizzaId") UUID pizzaId,
                                             @PathVariable("totalAmount") BigDecimal totalAmount, Authentication authentication) {
-        return orderService.createOrder(getUserId(authentication), pizzaId, totalAmount);
+        UUID userId = orderService.getUserId(authentication);
+        return orderService.createOrder(userId, pizzaId, totalAmount);
     }
 
     @DeleteMapping("/delete/{orderId}")
@@ -31,10 +32,10 @@ public class OrderController {
         orderService.deleteOrder(orderId);
     }
 
-    private static UUID getUserId(Authentication authentication) {
-        Jwt jwt = (Jwt) authentication.getPrincipal();
-        String userIdAsString = jwt.getClaimAsString("sub");
-        return UUID.fromString(userIdAsString);
+    @PutMapping("/status/change")
+    @ResponseStatus(HttpStatus.OK)
+    public void changeOrderStatus(@RequestBody ChangeOrderStatusRequestDto changeOrderStatusRequestDto) {
+        orderService.changeOrderStatus(changeOrderStatusRequestDto);
     }
 
 }

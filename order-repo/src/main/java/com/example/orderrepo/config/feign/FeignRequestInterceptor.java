@@ -7,7 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class FeignRequestInterceptor implements RequestInterceptor {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";

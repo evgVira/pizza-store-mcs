@@ -1,24 +1,28 @@
 package com.example.catalogrepo.config.security;
 
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     @Value("${jwk-uri}")
@@ -30,15 +34,21 @@ public class SecurityConfig {
 
     private static final String ROLES = "roles";
 
+    private static final String INTERNAL_REQUEST = "internal";
+
+    private final EurekaClientRequestFilter eurekaClientRequestFilter;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/v1/catalog/pizzas/info*").permitAll()
+                        auth.requestMatchers(this::isEurekaClient).permitAll()
+                                .requestMatchers("/api/v1/catalog/pizzas/info*").permitAll()
                                 .requestMatchers("/api/v1/catalog/pizzas/create", "/api/v1/catalog/pizzas/delete*")
                                 .hasRole(ADMIN_ROLE)
                                 .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwtDecoder()));
+        httpSecurity.addFilterBefore(eurekaClientRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
@@ -68,5 +78,9 @@ public class SecurityConfig {
                     .toList());
         }
         return authorities;
+    }
+
+    private boolean isEurekaClient(HttpServletRequest request) {
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(INTERNAL_REQUEST);
     }
 }

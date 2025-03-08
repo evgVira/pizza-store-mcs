@@ -5,9 +5,10 @@ import com.example.orderrepo.model.Order;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static com.example.orderrepo.enums.OrderStatuses.CREATED;
+import static com.example.orderrepo.enums.OrderStatus.CREATED;
 
 @Component
 public class OrderMapper {
@@ -17,6 +18,8 @@ public class OrderMapper {
                 .userId(userId)
                 .pizzaId(pizzaId)
                 .totalAmount(totalAmount)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
                 .status(CREATED)
                 .build();
     }
@@ -27,7 +30,9 @@ public class OrderMapper {
                 .userId(order.getUserId())
                 .pizzaId(order.getPizzaId())
                 .totalAmount(order.getTotalAmount())
-                .statuses(order.getStatus())
+                .status(order.getStatus())
+                .createdAt(order.getCreatedAt())
+                .updatedAt(order.getUpdatedAt())
                 .build();
     }
 
