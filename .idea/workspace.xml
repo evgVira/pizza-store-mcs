@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="refactor kafka consumer and producer">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/UserRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/enums/PizzaAvailableStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/resources/db/migration/V0_3__alter_pizza_table.sql" afterDir="false" />
+    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="add new columns for Pizza entity and refactor create pizza method">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/client/CatalogServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/UserRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/feign/FeignRequestInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/PizzaInfoResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaInfoResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaInfoResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/mapper/PizzaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/mapper/PizzaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/model/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/model/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/repository/PizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/repository/PizzaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/OrderRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/OrderRepoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/kafka/ProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/kafka/ProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -44,6 +48,7 @@
   "keyToString": {
     "Maven.api-gateway [clean,install].executor": "Run",
     "Maven.catalog-repo [clean,install].executor": "Run",
+    "Maven.order-repo [clean,install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -85,7 +90,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CatalogRepoApplication">
+  <component name="RunManager" selected="Spring Boot.OrderRepoApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -154,10 +159,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.CatalogRepoApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
         <item itemvalue="Spring Boot.NotificationRepoApplication" />
-        <item itemvalue="Spring Boot.OrderRepoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +192,7 @@
       <workItem from="1741267699597" duration="58000" />
       <workItem from="1741267777221" duration="22000" />
       <workItem from="1741267830854" duration="8873000" />
-      <workItem from="1741423938003" duration="3334000" />
+      <workItem from="1741423938003" duration="9498000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -229,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741278455694</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add new columns for Pizza entity and refactor create pizza method">
+      <option name="closed" value="true" />
+      <created>1741428712210</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741428712210</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +253,7 @@
     <MESSAGE value="add eureka and api-gateway into user-service" />
     <MESSAGE value="refactor ui" />
     <MESSAGE value="refactor kafka consumer and producer" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor kafka consumer and producer" />
+    <MESSAGE value="add new columns for Pizza entity and refactor create pizza method" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new columns for Pizza entity and refactor create pizza method" />
   </component>
 </project>

@@ -24,6 +24,8 @@ public class ProducerConfiguration {
 
     private final static int LINGER_MS = 5;
 
+    private final static int MAX_BLOCK_MS = 3000;
+
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
@@ -34,6 +36,7 @@ public class ProducerConfiguration {
         props.put(ProducerConfig.ACKS_CONFIG, ACKS);
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, BATCH_SIZE);
         props.put(ProducerConfig.LINGER_MS_CONFIG, LINGER_MS);
+        props.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, MAX_BLOCK_MS);
         return props;
     }
 

@@ -1,5 +1,6 @@
 package com.example.orderrepo.config.exception;
 
+import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorDto> handleResourceNotFound(ResourceNotFoundException exception) {
         logError(exception, HttpStatus.NOT_FOUND);
         return buildErrorResponse(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(UserRequestException.class)
+    public ResponseEntity<ErrorDto> handleUserRequestException(UserRequestException exception) {
+        logError(exception, HttpStatus.BAD_REQUEST);
+        return buildErrorResponse(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     private void logError(Exception exception, HttpStatus status) {
