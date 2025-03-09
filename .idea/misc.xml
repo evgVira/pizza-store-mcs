@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/notification-repo/pom.xml" />
         <option value="$PROJECT_DIR$/order-repo/pom.xml" />
         <option value="$PROJECT_DIR$/authrepo/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/delivery-repo/pom.xml" />
       </list>
     </option>
   </component>

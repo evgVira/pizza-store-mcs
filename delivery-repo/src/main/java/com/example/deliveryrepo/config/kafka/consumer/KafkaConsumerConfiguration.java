@@ -1,4 +1,4 @@
-package com.example.deliveryrepo.config.kafka;
+package com.example.deliveryrepo.config.kafka.consumer;
 
 
 import lombok.RequiredArgsConstructor;
@@ -50,10 +50,4 @@ public class KafkaConsumerConfiguration {
         return factory;
     }
 
-    @Bean("kafkaListenerContainerFactoryDlt")
-    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactoryDlt() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
-    }
 }

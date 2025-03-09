@@ -1,6 +1,10 @@
 package com.example.notificationrepo.service;
 
+import com.example.notificationrepo.client.OrderServiceClient;
+import com.example.notificationrepo.dto.ChangeOrderStatusRequestDto;
+import com.example.notificationrepo.dto.OrderDeliveryStageDto;
 import com.example.notificationrepo.dto.OrderNotification;
+import com.example.notificationrepo.enums.OrderStatus;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +24,16 @@ public class NotificationServiceConsumerImpl implements NotificationServiceConsu
 
     private static final String ORDER_DLT_TOPIC = "order-dlt-topic";
 
+    private static final String ORDER_STAGE_TOPIC = "order-stage-topic";
+
+    private static final String ORDER_STAGE_DLT_TOPIC = "order-stage-dlt-topic";
+
     private static final String ORDER_GROUP_ID = "order-group";
 
-    private static final String DLT_TOPIC_CONSUME = "Consume message from DLT topic: {}";
+    private final OrderServiceClient orderServiceClient;
 
     @Override
-    @KafkaListener(topics = ORDER_TOPIC, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = {ORDER_TOPIC, ORDER_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactoryFroOrderNotification")
     public void consumeNotification(@Payload String notification) {
         var readerForNotification = objectMapper.readerFor(OrderNotification.class);
         try {
@@ -37,15 +45,19 @@ public class NotificationServiceConsumerImpl implements NotificationServiceConsu
     }
 
     @Override
-    @KafkaListener(topics = ORDER_DLT_TOPIC, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactoryDlt")
-    public void consumeNotificationFromDLT(@Payload String notification) {
-        log.info(DLT_TOPIC_CONSUME, notification);
-        var readerForNotification = objectMapper.readerFor(OrderNotification.class);
+    @KafkaListener(topics = {ORDER_STAGE_TOPIC, ORDER_STAGE_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactoryForOrderStage")
+    public void consumeStageNotification(@Payload String notification) {
+        var readerForOrderDeliverStageDto = objectMapper.readerFor(OrderDeliveryStageDto.class);
+        OrderDeliveryStageDto orderDeliveryStageDto;
         try {
-            OrderNotification consumedOrderNotification = readerForNotification.readValue(notification);
-            log.info("Consumed notification: {}", consumedOrderNotification);
-        } catch (JsonProcessingException e) {
+            orderDeliveryStageDto = readerForOrderDeliverStageDto.readValue(notification);
+            log.info("Consumed notification: {}", orderDeliveryStageDto);
+        } catch (JsonProcessingException exception) {
             throw new RuntimeException("Failed to deserialize notification");
         }
+        ChangeOrderStatusRequestDto changeOrderStatusRequestDto = new ChangeOrderStatusRequestDto(
+                orderDeliveryStageDto.getOrderId(), OrderStatus.valueOf(orderDeliveryStageDto.getStatus())
+        );
+        orderServiceClient.changeOrderStatus(changeOrderStatusRequestDto);
     }
 }

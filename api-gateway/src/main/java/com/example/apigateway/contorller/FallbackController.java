@@ -28,4 +28,10 @@ public class FallbackController {
         return SERVER_ERROR_MESSAGE;
     }
 
+    @RequestMapping(value = "/notification", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+            RequestMethod.PATCH, RequestMethod.DELETE})
+    public String notificationFallback() {
+        return SERVER_ERROR_MESSAGE;
+    }
+
 }

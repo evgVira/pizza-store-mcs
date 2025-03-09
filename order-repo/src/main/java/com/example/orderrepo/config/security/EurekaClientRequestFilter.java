@@ -7,8 +7,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -29,7 +29,7 @@ public class EurekaClientRequestFilter extends OncePerRequestFilter {
         List<String> registerdIp = getEurekaServiceIps();
         if (registerdIp.contains(remoteAddr)) {
             SecurityContextHolder.getContext().setAuthentication(
-                    new PreAuthenticatedAuthenticationToken(INTERNAL_REQUEST, null, null)
+                    new UsernamePasswordAuthenticationToken(INTERNAL_REQUEST, null, null)
             );
         }
         filterChain.doFilter(request, response);

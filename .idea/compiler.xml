@@ -10,7 +10,7 @@
         <module name="api-gateway" />
         <module name="eureka-repo" />
       </profile>
-      <profile name="Annotation profile for notification-repo" enabled="true">
+      <profile name="Annotation profile for delivery-repo" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,6 +18,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
         </processorPath>
         <module name="notification-repo" />
+        <module name="delivery-repo" />
         <module name="user-service" />
         <module name="catalog-repo" />
         <module name="order-repo" />
@@ -28,6 +29,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="catalog-repo" options="-parameters" />
+      <module name="delivery-repo" options="-parameters" />
       <module name="eureka-repo" options="-parameters" />
       <module name="notification-repo" options="-parameters" />
       <module name="order-repo" options="-parameters" />

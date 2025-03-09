@@ -4,39 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="create feign client">
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/EurekaClientRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/client/OrderServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/ConsumerErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/ChangeOrderStatusRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/enums/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/ChangeOrderStatusRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-repo/src/main/resources/db/migration/V0_3__alter_order_table.sql" afterDir="false" />
+    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="create eureka request filter and another update)">
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/producer/KafkaProducerListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/producer/ProducerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/producer/RetryTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/dto/OrderDeliveryStageDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/enums/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/DeliveryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/OrderStageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/OrderStageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/OrderDeliveryStageDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b1784ff1-0cfd-4a40-93f4-b10920ee00ac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b1784ff1-0cfd-4a40-93f4-b10920ee00ac.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b1784ff1-0cfd-4a40-93f4-b10920ee00ac/storage_v2/_src_/database/catalog_db.ZG4xgg/schema/catalog_sc.NnAxgg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b1784ff1-0cfd-4a40-93f4-b10920ee00ac/storage_v2/_src_/database/catalog_db.ZG4xgg/schema/catalog_sc.NnAxgg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/NotificationRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/NotificationRepoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/contorller/FallbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/contorller/FallbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/ConsumerErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/ConsumerErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/KafkaProducerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/NotificationServiceConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/NotificationServiceConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/ConsumerErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/ConsumerErrorHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/OrderNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/test/java/com/example/notificationrepo/NotificationRepoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/test/java/com/example/notificationrepo/OrderNotificationRepoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/feign/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/feign/FeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/NotificationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/OrderNotificationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/OrderInfoResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/dto/OrderInfoResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/enums/OrderStatuses.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/enums/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/mapper/NotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/mapper/NotificationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +53,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2tlQBnL64P3RDSyIL9d3nmhR6Ct" />
   <component name="ProjectViewState">
+    <option name="flattenModules" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -66,6 +73,8 @@
   "keyToString": {
     "Maven.api-gateway [clean,install].executor": "Run",
     "Maven.catalog-repo [clean,install].executor": "Run",
+    "Maven.delivery-repo [clean,install].executor": "Run",
+    "Maven.eureka-repo [clean,install].executor": "Run",
     "Maven.notification-repo [clean,install].executor": "Run",
     "Maven.order-repo [clean,install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -75,25 +84,36 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.CatalogRepoApplication.executor": "Debug",
+    "Spring Boot.CatalogRepoApplication.executor": "Run",
+    "Spring Boot.DeliveryRepoApplication.executor": "Run",
     "Spring Boot.EurekaRepoApplication.executor": "Run",
     "Spring Boot.NotificationRepoApplication.executor": "Run",
-    "Spring Boot.OrderRepoApplication.executor": "Run",
+    "Spring Boot.OrderRepoApplication.executor": "Debug",
     "Spring Boot.UserServiceApplication.executor": "Run",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/evgeniy/IdeaProjects/pizza-store-mcs",
+    "last_opened_file_path": "/home/evgeniy/IdeaProjects/pizza-store-mcs/delivery-repo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.scopes",
     "ts.external.directory.path": "/home/evgeniy/idea-IU-241.18968.26/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.notificationrepo.dto" />
+      <recent name="com.example.deliveryrepo.config.kafka.producer" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -109,7 +129,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CatalogRepoApplication">
+  <component name="RunManager" selected="Spring Boot.OrderRepoApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -123,6 +143,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.catalogrepo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeliveryRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="delivery-repo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.deliveryrepo.DeliveryRepoApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.deliveryrepo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,10 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CatalogRepoApplication" />
+        <item itemvalue="Spring Boot.NotificationRepoApplication" />
         <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
-        <item itemvalue="Spring Boot.NotificationRepoApplication" />
+        <item itemvalue="Spring Boot.DeliveryRepoApplication" />
+        <item itemvalue="Spring Boot.CatalogRepoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +245,14 @@
       <workItem from="1741267699597" duration="58000" />
       <workItem from="1741267777221" duration="22000" />
       <workItem from="1741267830854" duration="8873000" />
-      <workItem from="1741423938003" duration="19476000" />
+      <workItem from="1741423938003" duration="23337000" />
+      <workItem from="1741521822514" duration="25000" />
+      <workItem from="1741521865864" duration="55000" />
+      <workItem from="1741521946037" duration="149000" />
+      <workItem from="1741522124291" duration="63000" />
+      <workItem from="1741522219525" duration="283000" />
+      <workItem from="1741522506644" duration="12615000" />
+      <workItem from="1741535144607" duration="5128000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -277,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741435777681</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="create eureka request filter and another update)">
+      <option name="closed" value="true" />
+      <created>1741450646003</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741450646003</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +339,8 @@
     <MESSAGE value="refactor kafka consumer and producer" />
     <MESSAGE value="add new columns for Pizza entity and refactor create pizza method" />
     <MESSAGE value="create feign client" />
-    <option name="LAST_COMMIT_MESSAGE" value="create feign client" />
+    <MESSAGE value="create eureka request filter and another update)" />
+    <option name="LAST_COMMIT_MESSAGE" value="create eureka request filter and another update)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -300,7 +350,57 @@
           <line>42</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="httpSecurity.filterOrders.filterToOrder" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

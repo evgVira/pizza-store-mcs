@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 
 import java.util.Collection;
 import java.util.List;
@@ -41,12 +41,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                .addFilterAt(eurekaClientRequestFilter, SecurityContextPersistenceFilter.class)
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(this::isEurekaClient).permitAll()
                                 .requestMatchers("/api/v1/order/delete/*").hasRole(ADMIN_ROLE)
                                 .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwtDecoder()));
-        httpSecurity.addFilterBefore(eurekaClientRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
@@ -78,7 +78,8 @@ public class SecurityConfig {
         return authorities;
     }
 
-    private boolean isEurekaClient(HttpServletRequest request){
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(INTERNAL_REQUEST);
+    private boolean isEurekaClient(HttpServletRequest request) {
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser");
+//        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(INTERNAL_REQUEST);
     }
 }

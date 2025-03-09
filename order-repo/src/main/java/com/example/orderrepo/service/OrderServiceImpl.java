@@ -7,7 +7,6 @@ import com.example.orderrepo.config.kafka.KafkaProducerListener;
 import com.example.orderrepo.dto.ChangeOrderStatusRequestDto;
 import com.example.orderrepo.dto.OrderInfoResponseDto;
 import com.example.orderrepo.dto.PizzaInfoResponseDto;
-import com.example.orderrepo.enums.OrderStatus;
 import com.example.orderrepo.mapper.NotificationMapper;
 import com.example.orderrepo.mapper.OrderMapper;
 import com.example.orderrepo.model.Order;
@@ -24,6 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
+import static com.example.orderrepo.enums.OrderStatus.CANCELLED;
+import static com.example.orderrepo.enums.OrderStatus.COMPLETED;
 
 @Service
 @RequiredArgsConstructor
@@ -88,6 +90,8 @@ public class OrderServiceImpl implements OrderService {
     public void changeOrderStatus(ChangeOrderStatusRequestDto changeOrderStatusRequestDto) {
         orderRepository.changeOrderStatus(changeOrderStatusRequestDto.getOrderId(),
                 changeOrderStatusRequestDto.getStatus());
+        Order updatedOrder = findOrderById(changeOrderStatusRequestDto.getOrderId());
+        sendNotification(updatedOrder);
     }
 
     private Order findOrderById(UUID orderId) {
@@ -96,6 +100,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void sendNotification(Order order) {
+        if (order.getStatus() == COMPLETED || order.getStatus() == CANCELLED) {
+            throw new RuntimeException(String.format("Order with id: %s have status COMPLETED or CANCELLED", order.getId()));
+        }
         kafkaTemplate.setProducerListener(kafkaProducerListener);
         retryTemplate.execute(retryContext -> kafkaTemplate.send(ORDER_MAIN_TOPIC,
                 notificationMapper.mapToNotificationDtoAsString(order, objectMapper)));

@@ -1,4 +1,4 @@
-package com.example.deliveryrepo.config.kafka;
+package com.example.deliveryrepo.config.kafka.consumer;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.TopicPartition;
@@ -14,7 +14,7 @@ public class ConsumerErrorHandler {
 
     private static final String DELIVER_DLT_TOPIC = "delivery-dlt-topic";
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public DefaultErrorHandler errorHandler() {
         DeadLetterPublishingRecoverer recoverer = new DeadLetterPublishingRecoverer(

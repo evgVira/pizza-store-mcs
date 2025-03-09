@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/authrepo/user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/catalog-repo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/delivery-repo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-repo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/notification-repo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-repo/src/main/java" charset="UTF-8" />

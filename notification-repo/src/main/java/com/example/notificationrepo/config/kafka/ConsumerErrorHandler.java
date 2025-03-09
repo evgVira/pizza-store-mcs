@@ -12,14 +12,12 @@ import org.springframework.util.backoff.FixedBackOff;
 @RequiredArgsConstructor
 public class ConsumerErrorHandler {
 
-    private static final String ORDER_DLT_TOPIC = "order-dlt-topic";
-
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public DefaultErrorHandler errorHandler() {
+    public DefaultErrorHandler errorHandler(String dltTopicName) {
         DeadLetterPublishingRecoverer recoverer = new DeadLetterPublishingRecoverer(
                 kafkaTemplate,
-                ((consumerRecord, e) -> new TopicPartition(ORDER_DLT_TOPIC, consumerRecord.partition()))
+                ((consumerRecord, e) -> new TopicPartition(dltTopicName, consumerRecord.partition()))
         );
         return new DefaultErrorHandler(recoverer, new FixedBackOff(2000L, 3));
     }
