@@ -1,7 +1,7 @@
 import {useState} from "react";
-import api from "./api";
+import api from "../api.tsx";
 import {useNavigate} from "react-router-dom";
-import {Button, Container, FormWrapper, Input, Title} from "./LoginPage.styles.ts";
+import {Button, FormWrapper, Input, Title} from "../styles/LoginPage.styles.ts";
 
 export default function LoginPage() {
     const [username, setUsername] = useState("");
@@ -16,7 +16,7 @@ export default function LoginPage() {
     };
 
     return (
-        <Container>
+        <div className={"form-container"}>
             <FormWrapper>
                 <Title>Вход</Title>
                 <Input
@@ -33,6 +33,6 @@ export default function LoginPage() {
                 />
                 <Button onClick={handleLogin}>Войти</Button>
             </FormWrapper>
-        </Container>
+        </div>
     );
 }

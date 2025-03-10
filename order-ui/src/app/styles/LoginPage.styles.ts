@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #121212;
-`;
-
 export const FormWrapper = styled.div`
     background: #1e1e1e;
     padding: 8rem;
