@@ -19,6 +19,9 @@ public class OrderDeliveryStageMapper {
     }
 
     public String mapToOrderDeliverStageDtoAsString(OrderDeliveryStageDto orderDeliveryStageDto, ObjectMapper objectMapper){
+        if(orderDeliveryStageDto.getStatus() == null){
+            return "DONE";
+        }
         try{
             return objectMapper.writeValueAsString(orderDeliveryStageDto);
         }catch (JsonProcessingException exception){

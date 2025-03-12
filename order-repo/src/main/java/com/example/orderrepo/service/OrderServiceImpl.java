@@ -7,6 +7,7 @@ import com.example.orderrepo.config.kafka.KafkaProducerListener;
 import com.example.orderrepo.dto.ChangeOrderStatusRequestDto;
 import com.example.orderrepo.dto.OrderInfoResponseDto;
 import com.example.orderrepo.dto.PizzaInfoResponseDto;
+import com.example.orderrepo.enums.OrderStatus;
 import com.example.orderrepo.mapper.NotificationMapper;
 import com.example.orderrepo.mapper.OrderMapper;
 import com.example.orderrepo.model.Order;
@@ -85,12 +86,18 @@ public class OrderServiceImpl implements OrderService {
         return UUID.fromString(userIdAsString);
     }
 
+    //todo оптимизировать обновление статуса
+
     @Override
     @Transactional
     public void changeOrderStatus(ChangeOrderStatusRequestDto changeOrderStatusRequestDto) {
-        orderRepository.changeOrderStatus(changeOrderStatusRequestDto.getOrderId(),
-                changeOrderStatusRequestDto.getStatus());
         Order updatedOrder = findOrderById(changeOrderStatusRequestDto.getOrderId());
+        OrderStatus currentOrderStatus = updatedOrder.getStatus();
+        if(currentOrderStatus == COMPLETED || currentOrderStatus == CANCELLED){
+            throw new RuntimeException("Order already completed");
+        }
+        updatedOrder.setStatus(changeOrderStatusRequestDto.getStatus());
+        orderRepository.save(updatedOrder);
         sendNotification(updatedOrder);
     }
 

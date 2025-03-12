@@ -41,6 +41,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                .csrf(csrf -> csrf.disable())
                 .addFilterAt(eurekaClientRequestFilter, SecurityContextPersistenceFilter.class)
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(this::isEurekaClient).permitAll()
@@ -79,7 +80,6 @@ public class SecurityConfig {
     }
 
     private boolean isEurekaClient(HttpServletRequest request) {
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser");
-//        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(INTERNAL_REQUEST);
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals(INTERNAL_REQUEST);
     }
 }

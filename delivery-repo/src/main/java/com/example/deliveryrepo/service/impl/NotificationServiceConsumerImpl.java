@@ -34,14 +34,18 @@ public class NotificationServiceConsumerImpl implements NotificationServiceConsu
     @KafkaListener(topics = {ORDER_TOPIC, ORDER_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
     public void consumeNotification(@Payload String notification) {
         var readerForNotification = objectMapper.readerFor(OrderNotification.class);
+        OrderNotification consumeOrderNotification;
         try {
-            OrderNotification consumeOrderNotification = readerForNotification.readValue(notification);
+            consumeOrderNotification = readerForNotification.readValue(notification);
             log.info("Consumed notification: {}", consumeOrderNotification);
-            String orderDeliveryStageDtoAsString = deliveryService.createPizzaAndDeliveryOrder(consumeOrderNotification);
-            orderStageService.updateOrderStatus(orderDeliveryStageDtoAsString);
         } catch (JsonProcessingException exception) {
             throw new RuntimeException("Failed to deserialize notification");
         }
+        String orderDeliveryStageDtoAsString = deliveryService.createPizzaAndDeliveryOrder(consumeOrderNotification);
+        if(orderDeliveryStageDtoAsString.equals("DONE")){
+            throw new RuntimeException("Order stage was completed!");
+        }
+        orderStageService.updateOrderStatus(orderDeliveryStageDtoAsString);
     }
 
 }

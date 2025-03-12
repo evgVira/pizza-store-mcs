@@ -52,13 +52,13 @@ public class DeliveryServiceImpl implements DeliveryService {
 
     private String doneOrder(OrderNotification orderNotification) {
         OrderDeliveryStageDto orderDeliveryStageDto = orderDeliveryStageMapper
-                .mapToOrderDeliveryStage(orderNotification, COMPLETED);
+                .mapToOrderDeliveryStage(orderNotification, null);
         return orderDeliveryStageMapper.mapToOrderDeliverStageDtoAsString(orderDeliveryStageDto, objectMapper);
     }
 
     private String canceledOrder(OrderNotification orderNotification) {
         OrderDeliveryStageDto orderDeliveryStageDto = orderDeliveryStageMapper
-                .mapToOrderDeliveryStage(orderNotification, CANCELED);
+                .mapToOrderDeliveryStage(orderNotification, null);
         return orderDeliveryStageMapper.mapToOrderDeliverStageDtoAsString(orderDeliveryStageDto, objectMapper);
     }
 }

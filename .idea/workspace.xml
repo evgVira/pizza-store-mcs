@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="some change">
+      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,40 +50,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.api-gateway [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.catalog-repo [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.delivery-repo [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eureka-repo [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.notification-repo [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.order-repo [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.CatalogRepoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DeliveryRepoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaRepoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.NotificationRepoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderRepoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/evgeniy/IdeaProjects/pizza-store-mcs/delivery-repo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/evgeniy/idea-IU-241.18968.26/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.api-gateway [clean,install].executor": "Run",
+    "Maven.catalog-repo [clean,install].executor": "Run",
+    "Maven.delivery-repo [clean,install].executor": "Run",
+    "Maven.eureka-repo [clean,install].executor": "Run",
+    "Maven.notification-repo [clean,install].executor": "Run",
+    "Maven.order-repo [clean,install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.CatalogRepoApplication.executor": "Run",
+    "Spring Boot.DeliveryRepoApplication.executor": "Run",
+    "Spring Boot.EurekaRepoApplication.executor": "Run",
+    "Spring Boot.NotificationRepoApplication.executor": "Run",
+    "Spring Boot.OrderRepoApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/evgeniy/IdeaProjects/pizza-store-mcs/delivery-repo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.scopes",
+    "ts.external.directory.path": "/home/evgeniy/idea-IU-241.18968.26/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -99,7 +110,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderRepoApplication">
+  <component name="RunManager" selected="Spring Boot.DeliveryRepoApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -181,9 +192,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NotificationRepoApplication" />
-        <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
+        <item itemvalue="Spring Boot.OrderRepoApplication" />
+        <item itemvalue="Spring Boot.NotificationRepoApplication" />
         <item itemvalue="Spring Boot.DeliveryRepoApplication" />
         <item itemvalue="Spring Boot.CatalogRepoApplication" />
       </list>
@@ -224,6 +235,10 @@
       <workItem from="1741522506644" duration="12615000" />
       <workItem from="1741535144607" duration="6191000" />
       <workItem from="1741586313583" duration="180000" />
+      <workItem from="1741631001918" duration="2336000" />
+      <workItem from="1741670572146" duration="63000" />
+      <workItem from="1741690314738" duration="8660000" />
+      <workItem from="1741699373401" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -311,6 +326,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix" />
     <MESSAGE value="add eureka and api-gateway into user-service" />
@@ -329,51 +355,6 @@
           <url>file://$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java</url>
           <line>42</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/EurekaClientRequestFilter.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

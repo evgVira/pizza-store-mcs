@@ -15,9 +15,9 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
 
     @Modifying
     @Query(value = """
-            update order_sc.order o
-            set o.status = :status
-            where o.id = :orderId
+            update order_sc.order
+            set status = :status
+            where id = :orderId
             """, nativeQuery = true)
     void changeOrderStatus(@Param("orderId") UUID orderId, @Param("status") OrderStatus status);
 
