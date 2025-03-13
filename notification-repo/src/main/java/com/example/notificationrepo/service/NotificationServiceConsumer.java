@@ -4,6 +4,8 @@ public interface NotificationServiceConsumer {
 
     void consumeNotification(String notification);
 
-    void consumeStageNotification(String notification);
+    void consumeNotificationFromDlt(String notification);
+
+    void consumeFromDeliveryDltTopic(String notification);
 
 }

@@ -107,9 +107,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void sendNotification(Order order) {
-        if (order.getStatus() == COMPLETED || order.getStatus() == CANCELLED) {
-            throw new RuntimeException(String.format("Order with id: %s have status COMPLETED or CANCELLED", order.getId()));
-        }
         kafkaTemplate.setProducerListener(kafkaProducerListener);
         retryTemplate.execute(retryContext -> kafkaTemplate.send(ORDER_MAIN_TOPIC,
                 notificationMapper.mapToNotificationDtoAsString(order, objectMapper)));

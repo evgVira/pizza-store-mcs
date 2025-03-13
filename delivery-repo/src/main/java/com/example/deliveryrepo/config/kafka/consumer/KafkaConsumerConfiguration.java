@@ -19,9 +19,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class KafkaConsumerConfiguration {
 
-    private final String BOOTSTRAP_SERVER = "localhost:9092";
+    private static final String BOOTSTRAP_SERVER = "localhost:9092";
 
-    private final String AUTO_OFFSET_RESET = "earliest";
+    private static final String AUTO_OFFSET_RESET = "earliest";
 
     private final ConsumerErrorHandler consumerErrorHandler;
 

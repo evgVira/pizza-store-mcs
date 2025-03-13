@@ -1,10 +1,6 @@
 package com.example.notificationrepo.service;
 
-import com.example.notificationrepo.client.OrderServiceClient;
-import com.example.notificationrepo.dto.ChangeOrderStatusRequestDto;
-import com.example.notificationrepo.dto.OrderDeliveryStageDto;
 import com.example.notificationrepo.dto.OrderNotification;
-import com.example.notificationrepo.enums.OrderStatus;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -18,22 +14,20 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class NotificationServiceConsumerImpl implements NotificationServiceConsumer {
 
+    //todo реализовать логику отправки уведомлений пользователю через WebSocket
+
     private final ObjectMapper objectMapper;
 
     private static final String ORDER_TOPIC = "order-topic";
 
     private static final String ORDER_DLT_TOPIC = "order-dlt-topic";
 
-    private static final String ORDER_STAGE_TOPIC = "order-stage-topic";
-
-    private static final String ORDER_STAGE_DLT_TOPIC = "order-stage-dlt-topic";
-
     private static final String ORDER_GROUP_ID = "order-group";
 
-    private final OrderServiceClient orderServiceClient;
+    private static final String DELIVER_DLT_TOPIC = "delivery-dlt-topic";
 
     @Override
-    @KafkaListener(topics = {ORDER_TOPIC, ORDER_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactoryFroOrderNotification")
+    @KafkaListener(topics = {ORDER_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
     public void consumeNotification(@Payload String notification) {
         var readerForNotification = objectMapper.readerFor(OrderNotification.class);
         try {
@@ -45,19 +39,26 @@ public class NotificationServiceConsumerImpl implements NotificationServiceConsu
     }
 
     @Override
-    @KafkaListener(topics = {ORDER_STAGE_TOPIC, ORDER_STAGE_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactoryForOrderStage")
-    public void consumeStageNotification(@Payload String notification) {
-        var readerForOrderDeliverStageDto = objectMapper.readerFor(OrderDeliveryStageDto.class);
-        OrderDeliveryStageDto orderDeliveryStageDto;
+    @KafkaListener(topics = {ORDER_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
+    public void consumeNotificationFromDlt(@Payload String notification) {
+        var readerForNotification = objectMapper.readerFor(OrderNotification.class);
         try {
-            orderDeliveryStageDto = readerForOrderDeliverStageDto.readValue(notification);
-            log.info("Consumed notification: {}", orderDeliveryStageDto);
-        } catch (JsonProcessingException exception) {
+            OrderNotification consumedOrderNotification = readerForNotification.readValue(notification);
+            log.info("Consumed notification From {} topic: {}", ORDER_DLT_TOPIC, consumedOrderNotification);
+        } catch (JsonProcessingException e) {
             throw new RuntimeException("Failed to deserialize notification");
         }
-        ChangeOrderStatusRequestDto changeOrderStatusRequestDto = new ChangeOrderStatusRequestDto(
-                orderDeliveryStageDto.getOrderId(), OrderStatus.valueOf(orderDeliveryStageDto.getStatus())
-        );
-        orderServiceClient.changeOrderStatus(changeOrderStatusRequestDto);
     }
+
+    @KafkaListener(topics = {DELIVER_DLT_TOPIC}, groupId = ORDER_GROUP_ID, containerFactory = "kafkaListenerContainerFactory")
+    public void consumeFromDeliveryDltTopic(@Payload String notification) {
+        var readerForNotification = objectMapper.readerFor(OrderNotification.class);
+        try {
+            OrderNotification consumedOrderNotification = readerForNotification.readValue(notification);
+            log.info("Consumed notification From {} topic: {}", DELIVER_DLT_TOPIC, consumedOrderNotification);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Failed to deserialize notification");
+        }
+    }
+
 }

@@ -20,8 +20,6 @@ public class KafkaConsumerConfiguration {
 
     private static final String ORDER_DLT_TOPIC = "order-dlt-topic";
 
-    private static final String ORDER_STAGE_DLT_TOPIC = "order-stage-dlt-topic";
-
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
 
     private static final String AUTO_OFFSET_RESET = "earliest";
@@ -44,21 +42,12 @@ public class KafkaConsumerConfiguration {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
-    @Bean("kafkaListenerContainerFactoryFroOrderNotification")
-    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactoryFroOrderNotification() {
+    @Bean("kafkaListenerContainerFactory")
+    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(3);
         factory.setCommonErrorHandler(consumerErrorHandler.errorHandler(ORDER_DLT_TOPIC));
-        return factory;
-    }
-
-    @Bean("kafkaListenerContainerFactoryForOrderStage")
-    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactoryForOrderStage() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        factory.setConcurrency(3);
-        factory.setCommonErrorHandler(consumerErrorHandler.errorHandler(ORDER_STAGE_DLT_TOPIC));
         return factory;
     }
 

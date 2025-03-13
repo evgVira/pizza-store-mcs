@@ -1,7 +1,7 @@
-package com.example.notificationrepo.dto;
+package com.example.deliveryrepo.dto;
 
+import com.example.deliveryrepo.enums.OrderStatus;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,13 +10,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class OrderDeliveryStageDto {
+public class ChangeOrderStatusRequestDto {
 
     private UUID orderId;
 
-    private UUID userId;
-
-    private String status;
-
+    private OrderStatus status;
 }

@@ -4,5 +4,5 @@ import com.example.deliveryrepo.dto.OrderNotification;
 
 public interface DeliveryService {
 
-    String createPizzaAndDeliveryOrder(OrderNotification orderNotification);
+    void createPizzaAndDeliveryOrder(OrderNotification orderNotification);
 }

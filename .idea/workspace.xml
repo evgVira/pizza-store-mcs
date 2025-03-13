@@ -4,18 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="some change">
-      <change afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/DeliveryRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/DeliveryRepoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/DeliveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/DeliveryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/OrderStageService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/OrderStageServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/client/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/client/OrderServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/ChangeOrderStatusRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/dto/ChangeOrderStatusRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/OrderDeliveryStageDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/repository/OrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,10 +201,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.UserServiceApplication" />
+        <item itemvalue="Spring Boot.DeliveryRepoApplication" />
         <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.NotificationRepoApplication" />
-        <item itemvalue="Spring Boot.DeliveryRepoApplication" />
+        <item itemvalue="Spring Boot.UserServiceApplication" />
         <item itemvalue="Spring Boot.CatalogRepoApplication" />
       </list>
     </recent_temporary>
@@ -239,6 +248,8 @@
       <workItem from="1741670572146" duration="63000" />
       <workItem from="1741690314738" duration="8660000" />
       <workItem from="1741699373401" duration="1238000" />
+      <workItem from="1741780173864" duration="1686000" />
+      <workItem from="1741864909513" duration="4004000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -320,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741540518125</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1741780200920</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741780200920</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +365,8 @@
     <MESSAGE value="create feign client" />
     <MESSAGE value="create eureka request filter and another update)" />
     <MESSAGE value="some change" />
-    <option name="LAST_COMMIT_MESSAGE" value="some change" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -355,6 +375,41 @@
           <url>file://$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java</url>
           <line>42</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
