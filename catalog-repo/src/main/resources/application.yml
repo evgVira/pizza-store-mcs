@@ -2,7 +2,7 @@ spring:
   application:
     name: catalog-service
   datasource:
-    url: jdbc:postgresql://localhost:5434/catalog_db
+    url: jdbc:postgresql://${DOCKER_HOST:localhost:5434}/catalog_db
     username: root
     password: root
   flyway:

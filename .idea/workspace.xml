@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="refactoring">
+    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="fix kafka logic into microservices">
+      <change afterPath="$PROJECT_DIR$/catalog-repo/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/DeliveryRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/DeliveryRepoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/config/kafka/consumer/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/mapper/OrderDeliveryStageMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/DeliveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/DeliveryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/OrderStageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/OrderStageServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/client/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/client/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/kafka/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/config/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/ChangeOrderStatusRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/dto/ChangeOrderStatusRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/dto/OrderDeliveryStageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/java/com/example/notificationrepo/service/NotificationServiceConsumerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-repo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,40 +44,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.api-gateway [clean,install].executor": "Run",
-    "Maven.catalog-repo [clean,install].executor": "Run",
-    "Maven.delivery-repo [clean,install].executor": "Run",
-    "Maven.eureka-repo [clean,install].executor": "Run",
-    "Maven.notification-repo [clean,install].executor": "Run",
-    "Maven.order-repo [clean,install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.CatalogRepoApplication.executor": "Run",
-    "Spring Boot.DeliveryRepoApplication.executor": "Run",
-    "Spring Boot.EurekaRepoApplication.executor": "Run",
-    "Spring Boot.NotificationRepoApplication.executor": "Run",
-    "Spring Boot.OrderRepoApplication.executor": "Run",
-    "Spring Boot.UserServiceApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/evgeniy/IdeaProjects/pizza-store-mcs/delivery-repo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "project.scopes",
-    "ts.external.directory.path": "/home/evgeniy/idea-IU-241.18968.26/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.catalog-repo/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api-gateway [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api-gateway [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.catalog-repo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.catalog-repo [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.delivery-repo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eureka-repo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notification-repo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.order-repo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CatalogRepoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DeliveryRepoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaRepoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NotificationRepoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OrderRepoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/evgeniy/IdeaProjects/pizza-store-mcs/delivery-repo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/evgeniy/idea-IU-241.18968.26/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -107,7 +95,9 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvnw clean package" />
       <command value="mvn clean install" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -119,7 +109,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DeliveryRepoApplication">
+  <component name="RunManager" selected="Spring Boot.CatalogRepoApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -127,15 +117,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CatalogRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="CatalogRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="catalog-repo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.catalogrepo.CatalogRepoApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.catalogrepo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,13 +183,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="catalog-repo/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="catalog-repo/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.catalog-repo/Dockerfile" />
         <item itemvalue="Spring Boot.DeliveryRepoApplication" />
         <item itemvalue="Spring Boot.OrderRepoApplication" />
         <item itemvalue="Spring Boot.NotificationRepoApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
-        <item itemvalue="Spring Boot.CatalogRepoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +247,10 @@
       <workItem from="1741690314738" duration="8660000" />
       <workItem from="1741699373401" duration="1238000" />
       <workItem from="1741780173864" duration="1686000" />
-      <workItem from="1741864909513" duration="4004000" />
+      <workItem from="1741864909513" duration="8656000" />
+      <workItem from="1741930983491" duration="24000" />
+      <workItem from="1742140728925" duration="3551000" />
+      <workItem from="1742190351673" duration="3199000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -339,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741780200920</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix kafka logic into microservices">
+      <option name="closed" value="true" />
+      <created>1741869468007</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741869468007</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +375,8 @@
     <MESSAGE value="create eureka request filter and another update)" />
     <MESSAGE value="some change" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="fix kafka logic into microservices" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix kafka logic into microservices" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -375,41 +385,6 @@
           <url>file://$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java</url>
           <line>42</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/NotificationServiceConsumerImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/delivery-repo/src/main/java/com/example/deliveryrepo/service/impl/DeliveryServiceImpl.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
