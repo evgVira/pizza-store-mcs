@@ -8,6 +8,7 @@ import com.example.catalogrepo.mapper.PizzaMapper;
 import com.example.catalogrepo.model.Pizza;
 import com.example.catalogrepo.repository.PizzaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,9 +25,13 @@ public class PizzaServiceImpl implements PizzaService {
 
     private static final String PIZZA_ALREADY_EXIST = "Pizza with name: %s already exists";
 
+    private static final String PIZZA_CACHE_KEY = "pizza:count:";
+
     private final PizzaRepository pizzaRepository;
 
     private final PizzaMapper pizzaMapper;
+
+    private final RedisCacheService redisCacheService;
 
     @Override
     @Transactional
@@ -38,12 +43,14 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
+//    @Cacheable(value = "pizzaCache", key = "#id")
     public PizzaInfoResponseDto getPizzaById(UUID id) {
         Pizza pizza = findPizzaById(id);
         return pizzaMapper.mapToPizzaInfoResponseDto(pizza);
     }
 
     @Override
+    @Cacheable(value = "pizzaList")
     public List<PizzaInfoResponseDto> getAllPizzas() {
         List<Pizza> pizzas = pizzaRepository.findAll();
         if (pizzas.isEmpty()) {

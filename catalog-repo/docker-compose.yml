@@ -11,16 +11,20 @@ services:
       - 5434:5432
     networks:
       - app-network
-  app:
-    image: evgvira/catalog-repo:latest
+  redis:
+    image: redis:latest
     ports:
-      - 8082:8082
-    environment:
-      DOCKER_HOST: db:5432
-    depends_on:
-      - db
-    networks:
-      - app-network
+      - 6379:6379
+#  app:
+#    image: evgvira/catalog-repo:latest
+#    ports:
+#      - 8082:8082
+#    environment:
+#      DOCKER_HOST: db:5432
+#    depends_on:
+#      - db
+#    networks:
+#      - app-network
 networks:
   app-network:
     driver: bridge
