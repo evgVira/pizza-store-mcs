@@ -28,6 +28,8 @@ public class SecurityConfig {
     @Value("${jwk-uri}")
     private String JWK_URI;
 
+    private static final String SWAGGER_URL = "http://localhost:8082/swagger-ui/index.html";
+
     private static final String ADMIN_ROLE = "ADMIN";
 
     private static final String REALM_ACCESS = "realm_access";
@@ -43,7 +45,7 @@ public class SecurityConfig {
         httpSecurity
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(this::isEurekaClient).permitAll()
-                                .requestMatchers("/api/v1/catalog/pizzas/info*").permitAll()
+                                .requestMatchers("/api/v1/catalog/pizzas/info*", SWAGGER_URL).permitAll()
                                 .requestMatchers("/api/v1/catalog/pizzas/create", "/api/v1/catalog/pizzas/delete*")
                                 .hasRole(ADMIN_ROLE)
                                 .anyRequest().authenticated())

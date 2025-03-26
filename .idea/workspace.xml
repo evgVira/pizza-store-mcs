@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="create Dockerfile for catalog-repo(prepare to deploy)">
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/redis/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/RedisCacheService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authrepo/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authrepo/user-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/CatalogRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/CatalogRepoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/service/PizzaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaCreateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaCreateRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +99,8 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvnw clean package" />
-      <command value="mvn clean install" />
       <command value="mvn clean package" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -254,6 +255,14 @@
       <workItem from="1742140728925" duration="3551000" />
       <workItem from="1742190351673" duration="3854000" />
       <workItem from="1742280224397" duration="12034000" />
+      <workItem from="1742360571066" duration="17000" />
+      <workItem from="1742360606499" duration="935000" />
+      <workItem from="1742362070672" duration="14592000" />
+      <workItem from="1742450068254" duration="7478000" />
+      <workItem from="1742632196219" duration="604000" />
+      <workItem from="1742800080916" duration="2771000" />
+      <workItem from="1742819738653" duration="198000" />
+      <workItem from="1742907867156" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
