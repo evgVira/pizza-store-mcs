@@ -1,6 +1,6 @@
 import {Button, FormContainer, Input, Title} from "../style/registerStyle.ts"
 import {PageContainer} from "../style/pageStyle.ts";
-import api from "../utils/api.tsx"
+// import api from "../utils/api.tsx"
 import {useNavigate} from "react-router-dom";
 import {useState} from "react"
 
@@ -12,10 +12,12 @@ export default function RegisterForm() {
     const navigate = useNavigate()
 
     const handleRegister = async () => {
-        const {data} = await api.post("/register", {username, password});
-        localStorage.setItem("accessToken", data.accessToken)
-        localStorage.setItem("refreshToken", data.refreshToken)
-        navigate("/dashboard")
+        // const {data} = await api.post("/register", {username, password});
+        // localStorage.setItem("accessToken", data.accessToken)
+        // localStorage.setItem("refreshToken", data.refreshToken)
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        navigate("/user", {state: {username, password}})
     }
     return (
         <PageContainer>

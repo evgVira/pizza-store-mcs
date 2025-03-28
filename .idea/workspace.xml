@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="create Dockerfile for catalog-repo(prepare to deploy)">
+    <list default="true" id="592fde12-55e6-469f-9c33-6001244d279b" name="Changes" comment="change web app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authrepo/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authrepo/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaCreateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/java/com/example/catalogrepo/dto/PizzaCreateRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-repo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-repo/src/main/java/com/example/orderrepo/config/exception/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,6 +255,8 @@
       <workItem from="1742800080916" duration="2771000" />
       <workItem from="1742819738653" duration="198000" />
       <workItem from="1742907867156" duration="26000" />
+      <workItem from="1742978926458" duration="630000" />
+      <workItem from="1743060792532" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
@@ -368,7 +362,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742193748774</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="change web app">
+      <option name="closed" value="true" />
+      <created>1742978979595</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742978979595</updated>
+    </task>
+    <task id="LOCAL-00015" summary="change web app">
+      <option name="closed" value="true" />
+      <created>1742979065508</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742979065508</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +407,8 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="fix kafka logic into microservices" />
     <MESSAGE value="create Dockerfile for catalog-repo(prepare to deploy)" />
-    <option name="LAST_COMMIT_MESSAGE" value="create Dockerfile for catalog-repo(prepare to deploy)" />
+    <MESSAGE value="change web app" />
+    <option name="LAST_COMMIT_MESSAGE" value="change web app" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

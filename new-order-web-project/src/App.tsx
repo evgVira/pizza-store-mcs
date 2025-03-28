@@ -7,6 +7,7 @@ import RegisterForm from "./components/RegisterForm.tsx";
 import DashBoard from "./components/DashBoard.tsx";
 import AuthenticatedLayout from "./components/AuthenticatedLayout.tsx";
 import PizzaList from "./components/PizzaList.tsx";
+import UserPage from "./components/UserPage.tsx";
 
 function PrivateRoute({children}: { children: JSX.Element }) {
     return localStorage.getItem("accessToken") ? children : <Navigate to={"/login"}/>
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path={"/register"} element={<RegisterForm/>}></Route>
                     <Route path={"/catalog"} element={<PizzaList/>}></Route>
                     <Route element={<PrivateRoute><AuthenticatedLayout/></PrivateRoute>}>
+                        <Route path={"/user"} element={<UserPage/>}></Route>
                         <Route path="/dashboard" element={<DashBoard/>}/>
                     </Route>
                 </Routes>

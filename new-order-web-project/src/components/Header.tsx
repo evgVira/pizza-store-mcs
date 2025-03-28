@@ -16,9 +16,6 @@ export default function Header() {
                 <NavLink to={"/"}>
                     <NavButton>Главная</NavButton>
                 </NavLink>
-                <NavLink to={"/login"}>
-                    <NavButton>Вход</NavButton>
-                </NavLink>
                 <NavLink to={"/catalog"}>
                     <NavButton>Каталог</NavButton>
                 </NavLink>
